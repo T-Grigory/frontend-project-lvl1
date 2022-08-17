@@ -2,6 +2,10 @@ import { NUMBER_OF_ROUNDS, engine } from '../index.js';
 import { getRandomInt } from '../random.js';
 
 function isPrime(number) {
+  if (number < 2) {
+    return false;
+  }
+
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
       return false;
