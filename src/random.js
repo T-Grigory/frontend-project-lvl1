@@ -1,3 +1,10 @@
-export default function getRandomInt() {
-    return Math.floor(Math.random() * 100);
+function getRandomInt(max = 100) {
+    return Math.floor(Math.random() * max);
 }
+
+function getRandomOperator() {
+    const operators = ['+', '-', '*'];
+    return operators[getRandomInt(operators.length)];
+}
+
+export { getRandomOperator, getRandomInt };
