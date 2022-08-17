@@ -1,36 +1,35 @@
-import { getRandomInt, getRandomOperator } from "../random.js";
-import { NUMBER_OF_ROUNDS, engine } from "../index.js";
+import { getRandomInt, getRandomOperator } from '../random.js';
+import { NUMBER_OF_ROUNDS, engine } from '../index.js';
 
 function calculate(num1, num2, operator) {
-    switch (operator) {
-        case '+':
-            return num1 + num2;
-        case '-':
-            return num1 - num2;
-        case '*':
-            return num1 * num2;
-        default:
-            throw new Error('Нет такого оператора!!!');
-    }
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      throw new Error('Нет такого оператора!!!');
+  }
 }
 
-
 export default function calcGameStart() {
-    const data = [];
+  const data = [];
 
-    for (let i = 0; i < NUMBER_OF_ROUNDS; i++) {
-        const currentData = [];
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+    const currentData = [];
 
-        const num1 = getRandomInt();
-        const num2 = getRandomInt();
-        const operator = getRandomOperator();
+    const num1 = getRandomInt();
+    const num2 = getRandomInt();
+    const operator = getRandomOperator();
 
-        const result = String(calculate(num1, num2, operator));
+    const result = String(calculate(num1, num2, operator));
 
-        currentData.push(`${num1} ${operator} ${num2}`);
-        currentData.push(result);
-        data.push(currentData);
-    }
-
-    engine(data);
+    currentData.push(`${num1} ${operator} ${num2}`);
+    currentData.push(result);
+    data.push(currentData);
+  }
+  const rule = 'What is the result of the expression?';
+  engine(data, rule);
 }
