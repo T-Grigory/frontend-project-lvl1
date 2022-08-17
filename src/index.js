@@ -23,5 +23,5 @@ export function engine(data, rule) {
     console.log('Correct!');
   }
 
-  console.log(`Congratulations, ${name}`);
+  console.log(`Congratulations, ${name}!`);
 }
